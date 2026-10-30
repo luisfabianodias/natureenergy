@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nature Energy | Energia Solar Fotovoltaica em Vacaria e Região</title>
+<meta name="description" content="Há 10 anos levando energia solar fotovoltaica para residências, comércios, indústrias e propriedades rurais em Vacaria e região. Projetos sob medida com instalação especializada.">
+<meta name="theme-color" content="#3459E0">
+<link rel="icon" href="src/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#3459E0;
+  --blue-link:#3f61e8;
+  --dark:#101010;
+  --dark2:#1a1a1a;
+  --line:#2b2b2b;
+  --white:#fff;
+  --wrap:min(1438px, calc(100% - 48px));
+  --ease:cubic-bezier(.22,.8,.26,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:128px}
+body{font-family:'Space Grotesk',sans-serif;background:var(--dark);color:#fff;line-height:1.55;overflow-x:hidden;font-size:clamp(1.05rem,1.25vw,1.5rem)}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+svg{display:block}
+.wrap{width:var(--wrap);margin-inline:auto}
+h1,h2,h3,h4{font-weight:700;letter-spacing:-.045em;text-transform:uppercase;line-height:1.1}
+.poly{background-color:var(--blue);background-image:var(--poly,none);background-size:cover;background-position:center}
+
+/* ============ HEADER ============ */
+header{position:fixed;inset:0 0 auto 0;height:128px;z-index:100;display:flex;align-items:center;transition:background .35s}
+header.scrolled{background:#111}
+.nav{display:flex;align-items:center;justify-content:space-between;width:var(--wrap);margin-inline:auto}
+.logo img{height:42px;width:auto;filter:brightness(0) invert(1)}
+.menu{display:flex;align-items:center;gap:clamp(30px,4.2vw,80px)}
+.menu > li{position:relative}
+.menu > li > a{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:clamp(.95rem,1.15vw,1.4rem);letter-spacing:-.04em;text-transform:uppercase;padding:14px 0;transition:opacity .25s}
+.menu > li > a:hover{opacity:.75}
+.menu .chev{width:10px;height:10px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg) translateY(-2px);transition:transform .25s}
+.menu svg.ic{width:24px;height:24px;fill:#fff}
+.dropdown{position:absolute;top:100%;left:-16px;min-width:230px;background:var(--dark2);border:1px solid var(--line);border-radius:16px;padding:10px;opacity:0;visibility:hidden;transform:translateY(12px);transition:.3s var(--ease)}
+.dropdown a{display:block;padding:12px 16px;border-radius:10px;font-weight:600;font-size:1rem;letter-spacing:-.02em;text-transform:none}
+.dropdown a:hover{background:var(--blue)}
+.has-drop:hover .dropdown,.has-drop:focus-within .dropdown{opacity:1;visibility:visible;transform:none}
+.has-drop:hover .chev{transform:rotate(225deg) translateY(-2px)}
+.burger{display:none;width:44px;height:44px;background:none;border:0;cursor:pointer;position:relative;z-index:120}
+.burger span,.burger span::before,.burger span::after{position:absolute;left:10px;width:24px;height:3px;background:#fff;border-radius:3px;content:'';transition:.3s}
+.burger span{top:20px}.burger span::before{left:0;top:-8px}.burger span::after{left:0;top:8px}
+.burger.open span{background:transparent}
+.burger.open span::before{top:0;transform:rotate(45deg)}
+.burger.open span::after{top:0;transform:rotate(-45deg)}
+
+/* ============ HERO ============ */
+.hero-wrap{padding-top:clamp(130px,10.2vw,196px)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.hero-grid h1{font-size:clamp(2.6rem,5.5vw,6.5rem);line-height:1.1;letter-spacing:-.05em;text-transform:uppercase}
+.hero-grid h1 .star{display:inline-flex;align-items:center;justify-content:center;width:.8em;height:.8em;background:#111;border-radius:50%;vertical-align:middle;margin-left:.12em;transform:translateY(-.06em)}
+.hero-grid h1 .star svg{width:56%;height:56%;fill:#fff}
+.hero-p{padding-top:.4em;font-size:clamp(1.05rem,1.3vw,1.6rem);line-height:1.55;max-width:640px;margin-left:auto;width:100%}
+.hero-p strong{font-weight:700;letter-spacing:-.03em}
+.word{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.06em}
+.word > span{display:inline-block;transform:translateY(115%);opacity:0;animation:wordUp .9s var(--ease) forwards;animation-delay:calc(var(--i) * .1s + .2s)}
+@keyframes wordUp{to{transform:none;opacity:1}}
+.fade-in{opacity:0;transform:translateY(24px);animation:fadeUp .9s var(--ease) forwards}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+
+.video-holder{position:relative;margin-top:clamp(80px,7.4vw,140px)}
+.arrow-btn{position:absolute;z-index:5;top:calc(clamp(70px,5.5vw,105px) * -1);right:calc((100% - min(1438px, 100% - 48px)) / 2 + clamp(20px,5.9vw,113px));width:clamp(120px,11vw,210px);height:clamp(120px,11vw,210px);border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease)}
+.arrow-btn i{width:81%;height:81%;border-radius:50%;background:#111;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.arrow-btn svg{width:34%;height:34%;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:square;animation:nudge 2.2s ease-in-out infinite}
+.arrow-btn:hover{transform:scale(1.07)}
+@keyframes nudge{0%,100%{transform:translate(-3px,-3px)}50%{transform:translate(4px,4px)}}
+.video-box{position:relative;height:clamp(340px,40.8vw,820px);border-radius:clamp(40px,5.3vw,100px) clamp(40px,5.3vw,100px) 0 0;overflow:hidden;background:#0a0a14 center/cover no-repeat;background-image:url('src/video-poster.jpg')}
+.video-box video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:transparent}
+.play{position:absolute;left:50%;top:50%;width:clamp(78px,6.5vw,125px);height:clamp(78px,6.5vw,125px);margin:calc(clamp(78px,6.5vw,125px) / -2) 0 0 calc(clamp(78px,6.5vw,125px) / -2);border-radius:50%;border:0;cursor:pointer;background:rgba(140,140,140,.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease),background .3s;animation:pulsePlay 2.6s ease-in-out infinite}
+.play svg{width:34%;height:34%;fill:#fff;margin-left:6%}
+.play:hover{transform:scale(1.1);background:rgba(160,160,160,.85)}
+@keyframes pulsePlay{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.25)}50%{box-shadow:0 0 0 22px rgba(255,255,255,0)}}
+.video-box.playing .play{display:none}
+
+/* ============ TÍTULOS ============ */
+.title{text-align:center;font-size:clamp(2.4rem,4vw,4.5rem);letter-spacing:-.05em}
+
+/* ============ LISTA DE SOLUÇÕES ============ */
+.solutions{padding-top:clamp(50px,5vw,96px);background:var(--dark)}
+.solutions .title{padding-bottom:clamp(30px,3vw,56px)}
+.rows{border-top:1px solid var(--line)}
+.row{display:block;border-bottom:1px solid var(--line);padding:clamp(24px,2vw,38px) 0}
+.row-in{width:var(--wrap);margin-inline:auto;display:grid;grid-template-columns:21.5% 15.2% 1fr 70px;column-gap:1.3%;align-items:center}
+.row-img{border-radius:clamp(16px,1.4vw,28px);overflow:hidden;aspect-ratio:414/275;background:#1d1d24}
+.row-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.row:hover .row-img img{transform:scale(1.07)}
+.row h3{font-size:clamp(1.5rem,2.1vw,2.5rem);padding-left:1.2%}
+.row-text{max-width:560px}
+.row-text p{margin-bottom:1em;line-height:1.55}
+.row-text .lnk{color:var(--blue-link);display:inline-block;transition:letter-spacing .3s,color .3s}
+.row:hover .lnk{letter-spacing:.02em;color:#6482ff}
+.row .arr{justify-self:end;width:34px;height:34px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:square;transition:transform .35s var(--ease)}
+.row:hover .arr{transform:translate(5px,-5px)}
+
+/* ============ SOBRE ============ */
+.about{background:var(--dark2);padding:clamp(70px,6.2vw,118px) 0}
+.about .wrap{display:grid;grid-template-columns:1fr 1.13fr;gap:clamp(40px,4.5vw,86px);align-items:center}
+.about h2{font-size:clamp(2.2rem,3.8vw,4.3rem);margin-bottom:.55em}
+.about p{margin-bottom:1.1em;line-height:1.6}
+.about p b{font-weight:700}
+.about p a{color:var(--blue-link);font-weight:700}
+.about-img{border-radius:clamp(20px,1.7vw,32px);overflow:hidden;aspect-ratio:718/479;background:#26262e}
+.about-img img{width:100%;height:100%;object-fit:cover}
+
+/* ============ CLIENTES ============ */
+.clients{background:var(--dark);padding:clamp(60px,5vw,96px) 0 clamp(50px,4.5vw,86px);overflow:hidden}
+.clients .title{margin-bottom:clamp(30px,3vw,60px)}
+.marquee{overflow:hidden}
+.track{display:flex;width:max-content;animation:scroll 34s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.logo-item{flex:0 0 auto;width:clamp(150px,19.8vw,380px);height:clamp(70px,6vw,110px);display:flex;align-items:center;justify-content:center;padding:0 clamp(14px,2.6vw,50px)}
+.logo-item img{max-width:100%;max-height:100%;object-fit:contain;filter:brightness(0) invert(1);opacity:.95}
+@keyframes scroll{to{transform:translateX(-33.3333%)}}
+
+/* ============ ORÇAMENTO ============ */
+.quote{border-radius:clamp(30px,2.6vw,50px);padding:clamp(60px,6vw,110px) 0 clamp(60px,6.4vw,122px)}
+.quote .title{margin-bottom:clamp(24px,2.4vw,46px)}
+.quote-btns{width:min(1413px,calc(100% - 48px));margin-inline:auto;display:flex;justify-content:center}
+.qbtn{width:min(454px,100%);background:#fff;color:var(--blue);border-radius:clamp(12px,1vw,18px);height:clamp(62px,4.45vw,85px);display:flex;align-items:center;justify-content:center;gap:14px;font-weight:700;font-size:clamp(1.1rem,1.7vw,2rem);letter-spacing:-.04em;text-transform:uppercase;transition:transform .3s var(--ease),box-shadow .3s}
+.qbtn svg{width:1.05em;height:1.05em;fill:var(--blue)}
+.qbtn:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(0,0,40,.3)}
+
+/* ============ FOOTER ============ */
+footer{background:#0d0d0d;padding:clamp(60px,5.8vw,110px) 0 0}
+.f-grid{width:var(--wrap);margin-inline:auto;display:grid;grid-template-columns:repeat(3,1fr);column-gap:clamp(24px,3vw,56px);row-gap:clamp(36px,4vw,80px);align-items:start}
+.f-logo img{height:44px;width:auto;filter:brightness(0) invert(1);margin-bottom:clamp(20px,2vw,38px)}
+.f-info p{margin-bottom:.7em}
+.f-info address{font-style:normal;line-height:1.6}
+.f-list li{margin-bottom:18px}
+.f-list a{display:inline-flex;align-items:center;gap:16px;transition:color .25s}
+.f-list a:hover{color:#8ea6ff}
+.f-list .ico{flex:0 0 46px;width:46px;height:46px;border-radius:50%;background:#2a2a2a;display:flex;align-items:center;justify-content:center;transition:background .3s}
+.f-list .ico svg{width:22px;height:22px;fill:#fff}
+.f-list a:hover .ico{background:var(--blue)}
+.f-info a:hover{color:#8ea6ff}
+.f-social h4{font-size:clamp(1.3rem,1.5vw,1.8rem);text-transform:none;letter-spacing:-.03em;font-weight:500;margin-bottom:clamp(16px,1.6vw,30px)}
+.socials{display:flex;gap:30px}
+.socials a{width:60px;height:60px;border-radius:50%;background:#2a2a2a;display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease),background .3s}
+.socials a svg{width:26px;height:26px;fill:#fff}
+.socials a.light{background:#ececf2}
+.socials a.light svg{fill:var(--blue)}
+.socials a:hover{transform:translateY(-5px);background:var(--blue)}
+.socials a.light:hover{background:#fff}
+.f-unit h4{font-size:clamp(1.3rem,1.5vw,1.8rem);text-transform:none;letter-spacing:-.03em;font-weight:500;margin-bottom:clamp(16px,1.6vw,30px)}
+.f-unit strong{display:block;text-transform:uppercase;letter-spacing:-.03em;font-size:clamp(1.1rem,1.35vw,1.6rem);line-height:1.5}
+.f-unit address{font-style:normal;margin-top:.2em}
+.f-map{border-radius:clamp(18px,1.6vw,30px);overflow:hidden;height:clamp(240px,20vw,380px);background:#1a1a1a}
+.f-map iframe{width:100%;height:100%;border:0;filter:grayscale(.2)}
+.f-copy{width:var(--wrap);margin:clamp(40px,4vw,80px) auto 0;border-top:1px solid var(--line);padding:26px 0;text-align:center;font-size:.85rem;color:#8a8a8a}
+.f-copy a:hover{color:#fff}
+
+/* ============ WHATSAPP FLUTUANTE ============ */
+.float-wpp{position:fixed;right:25px;bottom:25px;z-index:90;width:55px;height:55px;border-radius:50%;background:#1fc75a;display:flex;align-items:center;justify-content:center;border:0;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:transform .3s var(--ease)}
+.float-wpp svg{width:30px;height:30px;fill:#fff}
+.float-wpp:hover{transform:scale(1.1)}
+.wpp-pop{position:fixed;right:25px;bottom:92px;z-index:91;width:min(330px,calc(100vw - 50px));background:#1a1a1a;border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.5);overflow:hidden;opacity:0;visibility:hidden;transform:translateY(16px) scale(.97);transition:.35s var(--ease);font-size:1rem}
+.wpp-pop.open{opacity:1;visibility:visible;transform:none}
+.wpp-head{background:#1fc75a;padding:16px 46px 16px 18px;position:relative;display:flex;flex-direction:column;line-height:1.3}
+.wpp-head span{font-size:.88rem;opacity:.95}
+.wpp-head button{position:absolute;right:12px;top:8px;background:none;border:0;color:#fff;font-size:1.8rem;line-height:1;cursor:pointer}
+.wpp-unit{display:flex;align-items:center;gap:14px;padding:14px 18px;font-weight:600;transition:background .25s}
+.wpp-unit:hover{background:#242424}
+.wpp-unit img{width:46px;height:46px;border-radius:50%;object-fit:contain;background:var(--blue);padding:7px;filter:brightness(0) invert(1)}
+.wpp-foot{padding:10px 18px;border-top:1px solid var(--line);font-size:.78rem;color:#9a9a9a}
+.wpp-foot a:hover{color:#fff}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.reveal.show{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal,.fade-in,.word>span{opacity:1!important;transform:none!important}
+}
+
+/* ============ RESPONSIVO ============ */
+@media (max-width:1100px){
+  .row-in{grid-template-columns:30% 1fr 50px;grid-template-areas:"img title arr" "img text arr";row-gap:8px;column-gap:24px;align-items:start}
+  .row-img{grid-area:img}
+  .row h3{grid-area:title;padding-left:0;align-self:end}
+  .row-text{grid-area:text}
+  .row .arr{grid-area:arr}
+}
+@media (max-width:980px){
+  header{height:90px}
+  .burger{display:block}
+  .menu{position:fixed;inset:0 0 0 auto;width:min(330px,86%);background:#111;flex-direction:column;align-items:flex-start;gap:4px;padding:110px 28px 30px;transform:translateX(100%);transition:transform .4s var(--ease);box-shadow:-20px 0 50px rgba(0,0,0,.5);overflow-y:auto}
+  .menu.open{transform:none}
+  .menu > li{width:100%}
+  .menu > li > a{width:100%;padding:16px 0;border-bottom:1px solid var(--line);font-size:1.1rem}
+  .dropdown{position:static;opacity:1;visibility:visible;transform:none;background:transparent;border:0;padding:0 0 0 14px;display:none}
+  .has-drop.open .dropdown{display:block}
+  .hero-grid{grid-template-columns:1fr;gap:26px}
+  .hero-p{margin-left:0}
+  .about .wrap{grid-template-columns:1fr}
+  .quote-btns{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr}
+  .f-map{grid-column:auto}
+  .socials{gap:16px}
+  .arrow-btn{right:24px}
+}
+@media (max-width:640px){
+  .row-in{grid-template-columns:1fr 40px;grid-template-areas:"img img" "title arr" "text text"}
+  .row-img{margin-bottom:10px}
+  .logo-item{width:170px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ícones reutilizáveis -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wpp" viewBox="0 0 32 32"><path d="M16 3C9 3 3.4 8.6 3.4 15.5c0 2.4.7 4.7 1.9 6.6L3.2 29l7.1-1.9c1.9 1 4 1.6 6.2 1.6h0c6.9 0 12.5-5.6 12.5-12.5S22.9 3 16 3zm0 22.9c-2 0-3.9-.5-5.6-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4a10.3 10.3 0 0 1-1.6-5.4C5 9.8 9.9 5 16 5s11 4.8 11 10.5S22 25.9 16 25.9zm6-7.7c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.5 8.5 0 0 1-4.2-3.7c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.6l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2 2.2.9 3 1 4.1.8.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5-.1-.1-.3-.2-.6-.4z"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.3 5.8a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 9h-3a15.7 15.7 0 0 0-1.2-5.2A8 8 0 0 1 18.9 11zM12 4c.8 1 1.8 3 2 7h-4c.2-4 1.2-6 2-7zM4.1 13h3a15.7 15.7 0 0 0 1.2 5.2A8 8 0 0 1 4.1 13zm3-2h-3a8 8 0 0 1 4.2-5.2A15.7 15.7 0 0 0 7.1 11zM12 20c-.8-1-1.8-3-2-7h4c-.2 4-1.2 6-2 7zm2.7-1.8c.7-1.2 1.1-3 1.2-5.2h3a8 8 0 0 1-4.2 5.2z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm1.5 2v.4l7.500 5.100 7.500-5.100V7h-15zm15 2.800l-7 4.800a1 1 0 0 1-1 0L4.500 9.800V17h15V9.800z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></symbol>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="nav">
+    <a href="#inicio" class="logo"><img src="src/logo.png" alt="Nature Energy"></a>
+
+    <ul class="menu" id="menu">
+      <li class="has-drop">
+        <a href="#energia-solar">Energia Solar <i class="chev"></i></a>
+        <div class="dropdown">
+          <a href="#comercio">Comércio</a>
+          <a href="#residencial">Residencial</a>
+          <a href="#industria">Indústria</a>
+          <a href="#agronegocio">Agronegócio</a>
+          <a href="#condominios">Condomínios</a>
+        </div>
+      </li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li class="has-drop">
+        <a href="#contato">Contato <i class="chev"></i></a>
+        <div class="dropdown">
+          <a href="https://api.whatsapp.com/send/?phone=5554981439576" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.instagram.com/natureenergybrasil/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </li>
+      <li><a href="#orcamento"><svg class="ic"><use href="#i-wpp"/></svg> Orçamento</a></li>
+    </ul>
+
+    <button class="burger" id="burger" aria-label="Abrir menu"><span></span></button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<div class="hero-wrap poly" id="inicio">
+  <div class="wrap hero-grid">
+    <h1 id="heroTitle">10 anos de <span class="star" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0c.7 6.6 4.7 10.6 12 12-7.3 1.4-11.300 5.4-12 12-.7-6.6-4.700-10.600-12-12C7.300 10.600 11.300 6.600 12 0z"/></svg></span> energia solar</h1>
+    <p class="hero-p fade-in" style="animation-delay:.9s"><strong>Energia solar</strong> para residências, comércios, indústrias e propriedades rurais. Projetos sob medida com instalação especializada em Vacaria e região.</p>
+  </div>
+
+  <div class="video-holder">
+    <a href="#energia-solar" class="arrow-btn" aria-label="Ver soluções"><i><svg viewBox="0 0 24 24"><path d="M3 3l17 17M20 8v12H8"/></svg></i></a>
+    <div class="video-box" id="videoBox">
+      <video id="heroVideo" poster="src/video-poster.jpg" preload="metadata" playsinline>
+        <source src="src/video.mp4#t=0.1" type="video/mp4">
+      </video>
+      <button class="play" id="playBtn" aria-label="Reproduzir vídeo"><svg viewBox="0 0 24 24"><path d="M6 3.500v17a1 1 0 0 0 1.500.860l14-8.500a1 1 0 0 0 0-1.720l-14-8.500A1 1 0 0 0 6 3.500z"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ENERGIA SOLAR ============ -->
+<section class="solutions" id="energia-solar">
+  <h2 class="title reveal">Energia Solar</h2>
+
+  <div class="rows">
+    <a class="row reveal" id="comercio" href="#orcamento">
+      <div class="row-in">
+        <div class="row-img"><img src="src/comercio.jpg" alt="Energia solar para comércio" loading="lazy"></div>
+        <h3>Comércio</h3>
+        <div class="row-text">
+          <p>Reduza o custo fixo mais pesado da sua loja: a conta de luz.</p>
+          <p>Sistemas dimensionados para o consumo do seu negócio, com retorno do investimento e valorização do imóvel.</p>
+          <span class="lnk">Ver energia solar para comércio →</span>
+        </div>
+        <svg class="arr" viewBox="0 0 24 24"><path d="M4 20L20 4M7 4h13v13"/></svg>
+      </div>
+    </a>
+
+    <a class="row reveal" id="residencial" href="#orcamento">
+      <div class="row-in">
+        <div class="row-img"><img src="src/residencial.jpg" alt="Energia solar residencial" loading="lazy"></div>
+        <h3>Residencial</h3>
+        <div class="row-text">
+          <p>Produza a sua própria energia e diga adeus aos reajustes na conta de luz.</p>
+          <p>Projetos sob medida com tamanho ideal para a sua casa e o seu consumo, com instalação limpa e segura.</p>
+          <span class="lnk">Ver energia solar residencial →</span>
+        </div>
+        <svg class="arr" viewBox="0 0 24 24"><path d="M4 20L20 4M7 4h13v13"/></svg>
+      </div>
+    </a>
+
+    <a class="row reveal" id="industria" href="#orcamento">
+      <div class="row-in">
+        <div class="row-img"><img src="src/industria.jpg" alt="Energia solar para indústria" loading="lazy"></div>
+        <h3>Indústria</h3>
+        <div class="row-text">
+          <p>Usinas de alto desempenho para galpões e indústrias, com projeto de engenharia completo.</p>
+          <p>Mais competitividade para a sua operação com energia limpa e previsível.</p>
+          <span class="lnk">Ver energia solar para indústria →</span>
+        </div>
+        <svg class="arr" viewBox="0 0 24 24"><path d="M4 20L20 4M7 4h13v13"/></svg>
+      </div>
+    </a>
+
+    <a class="row reveal" id="agronegocio" href="#orcamento">
+      <div class="row-in">
+        <div class="row-img"><img src="src/agronegocio.jpg" alt="Energia solar para o agronegócio" loading="lazy"></div>
+        <h3>Agronegócio</h3>
+        <div class="row-text">
+          <p>Energia solar para pivôs, aviários, câmaras frias e toda a estrutura da propriedade rural.</p>
+          <p>Menos custo na produção, mais lucro no campo.</p>
+          <span class="lnk">Ver energia solar para o agro →</span>
+        </div>
+        <svg class="arr" viewBox="0 0 24 24"><path d="M4 20L20 4M7 4h13v13"/></svg>
+      </div>
+    </a>
+
+    <a class="row reveal" id="condominios" href="#orcamento">
+      <div class="row-in">
+        <div class="row-img"><img src="src/condominios.jpg" alt="Energia solar para condomínios" loading="lazy"></div>
+        <h3>Condomínios</h3>
+        <div class="row-text">
+          <p>Reduza as despesas das áreas comuns e valorize o condomínio com uma solução sustentável.</p>
+          <p>Projetos adaptados à estrutura de cada empreendimento.</p>
+          <span class="lnk">Ver energia solar para condomínios →</span>
+        </div>
+        <svg class="arr" viewBox="0 0 24 24"><path d="M4 20L20 4M7 4h13v13"/></svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="about" id="sobre">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>Nature Energy Brasil</h2>
+      <p>Somos uma empresa brasileira de energia solar fotovoltaica com sede em <b>Vacaria – RS</b>, atendendo toda a região com projetos sob medida e atendimento personalizado. Somos referência no mercado, oferecendo soluções que unem economia, tecnologia e sustentabilidade. Entregamos instalação especializada e acompanhamento em todas as etapas, do projeto à geração de energia.</p>
+      <p>Há 10 anos levando energia limpa e economia para a nossa região.</p>
+    </div>
+    <div class="about-img reveal" style="--d:.15s"><img src="src/sobre.jpg" alt="Equipe Nature Energy" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ============ CLIENTES ============ -->
+<section class="clients" id="clientes">
+  <h2 class="title reveal">Nossos Clientes</h2>
+  <div class="marquee reveal">
+    <div class="track" id="track">
+      <div class="logo-item"><img src="src/cliente-01.png" alt="Cliente 01"></div>
+      <div class="logo-item"><img src="src/cliente-02.png" alt="Cliente 02"></div>
+      <div class="logo-item"><img src="src/cliente-03.png" alt="Cliente 03"></div>
+      <div class="logo-item"><img src="src/cliente-04.png" alt="Cliente 04"></div>
+      <div class="logo-item"><img src="src/cliente-05.png" alt="Cliente 05"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORÇAMENTO ============ -->
+<section class="quote poly" id="orcamento">
+  <h2 class="title reveal">Solicite um Orçamento</h2>
+  <div class="quote-btns reveal" style="--d:.12s">
+    <a class="qbtn" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=5554981439576&text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es">WhatsApp <svg><use href="#i-wpp"/></svg></a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contato">
+  <div class="f-grid">
+    <div class="f-info reveal">
+      <div class="f-logo"><img src="src/logo.png" alt="Nature Energy"></div>
+      <p><a href="https://api.whatsapp.com/send/?phone=5554981439576" target="_blank" rel="noopener">(54) 98143-9576</a></p>
+      <address>Av. Samuel Guazzelli, 855<br>Jardim Toscano, Vacaria - RS<br>CEP 95210-509</address>
+    </div>
+
+    <div class="f-social reveal" style="--d:.1s">
+      <h4>Contatos</h4>
+      <ul class="f-list">
+        <li><a href="https://www.instagram.com/natureenergybrasil/" target="_blank" rel="noopener"><span class="ico"><svg><use href="#i-insta"/></svg></span>@natureenergybrasil</a></li>
+        <li><a href="https://api.whatsapp.com/send/?phone=5554981439576" target="_blank" rel="noopener"><span class="ico"><svg><use href="#i-wpp"/></svg></span>(54) 98143-9576</a></li>
+        <li><a href="mailto:contato@natureenergy.com.br"><span class="ico"><svg><use href="#i-mail"/></svg></span>contato@natureenergy.com.br</a></li>
+      </ul>
+    </div>
+
+    <div class="f-map reveal" style="--d:.2s">
+      <iframe
+        title="Localização da Nature Energy no Google Maps"
+        src="https://www.google.com/maps?q=Nature+Energy,+Av.+Samuel+Guazzelli,+855+-+Jardim+Toscano,+Vacaria+-+RS,+95210-509&output=embed"
+        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+
+  <div class="f-copy">©NATURE ENERGY – Energia Solar · <a href="https://maps.app.goo.gl/87bvgndj8zpatcRa6" target="_blank" rel="noopener">Abrir no Google Maps</a> · <span id="year"></span></div>
+</footer>
+
+<!-- WhatsApp flutuante -->
+<div class="wpp-pop" id="wppPop" role="dialog" aria-label="Contato">
+  <div class="wpp-head">
+    <strong>Nature Energy</strong>
+    <span>Entre em contato e solicite um orçamento!</span>
+    <button type="button" id="wppClose" aria-label="Fechar">&times;</button>
+  </div>
+  <a class="wpp-unit" target="_blank" rel="noopener" href="https://api.whatsapp.com/send/?phone=5554981439576&text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es">
+    <img src="src/logo.png" alt="Nature Energy">
+    <span>Vacaria - RS (Matriz)</span>
+  </a>
+  <div class="wpp-foot">Online | <a href="#contato">Política de privacidade</a></div>
+</div>
+<button type="button" class="float-wpp" id="wppBtn" aria-label="Falar no WhatsApp"><svg><use href="#i-wpp"/></svg></button>
+
+<script>
+/* Fundo poligonal (low-poly) gerado em SVG, igual ao da referência */
+(function(){
+  let t = 20261029;
+  const rnd = () => { t |= 0; t = t + 0x6D2B79F5 | 0; let r = Math.imul(t ^ t >>> 15, 1 | t); r = r + Math.imul(r ^ r >>> 7, 61 | r) ^ r; return ((r ^ r >>> 14) >>> 0) / 4294967296; };
+  const W = 1600, H = 900, C = 9, R = 6, cw = W / C, ch = H / R;
+  const pts = [];
+  for (let y = 0; y <= R; y++) { pts[y] = []; for (let x = 0; x <= C; x++) {
+    const jx = (x === 0 || x === C) ? 0 : (rnd() - .5) * cw * .8;
+    const jy = (y === 0 || y === R) ? 0 : (rnd() - .5) * ch * .8;
+    pts[y][x] = [x * cw + jx, y * ch + jy];
+  } }
+  const fill = () => rnd() < .5 ? `rgba(255,255,255,${(rnd() * .07).toFixed(3)})` : `rgba(8,18,110,${(rnd() * .16).toFixed(3)})`;
+  let p = '';
+  const tri = (a, b, c) => { p += `<polygon points="${a},${b},${c}" fill="${fill()}"/>`; };
+  for (let y = 0; y < R; y++) for (let x = 0; x < C; x++) {
+    const a = pts[y][x], b = pts[y][x + 1], c = pts[y + 1][x], d = pts[y + 1][x + 1];
+    if (rnd() < .5) { tri(a, b, c); tri(b, d, c); } else { tri(a, b, d); tri(a, d, c); }
+  }
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice">${p}</svg>`;
+  document.documentElement.style.setProperty('--poly', `url("data:image/svg+xml,${encodeURIComponent(svg)}")`);
+})();
+
+/* Header: fundo escuro ao rolar */
+const header = document.getElementById('header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+/* Menu mobile */
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.addEventListener('click', () => { burger.classList.toggle('open'); menu.classList.toggle('open'); });
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', e => {
+  const li = a.parentElement;
+  if (window.innerWidth <= 980 && li.classList.contains('has-drop') && a === li.querySelector(':scope > a')) {
+    e.preventDefault(); li.classList.toggle('open'); return;
+  }
+  burger.classList.remove('open'); menu.classList.remove('open');
+}));
+
+/* Título do hero: surgimento palavra por palavra */
+(function(){
+  const h1 = document.getElementById('heroTitle');
+  let i = 0;
+  [...h1.childNodes].forEach(node => {
+    if (node.nodeType === 3) {
+      const frag = document.createDocumentFragment();
+      node.textContent.split(/(\s+)/).forEach(part => {
+        if (!part.trim()) { frag.appendChild(document.createTextNode(part)); return; }
+        const w = document.createElement('span'); w.className = 'word';
+        const s = document.createElement('span'); s.textContent = part; s.style.setProperty('--i', i++);
+        w.appendChild(s); frag.appendChild(w);
+      });
+      h1.replaceChild(frag, node);
+    } else if (node.nodeType === 1 && node.classList.contains('star')) {
+      node.style.opacity = 0; node.style.transform = 'translateY(-.06em) scale(.3) rotate(-90deg)';
+      node.style.transition = 'opacity .8s var(--ease) ' + (i * .1 + .2) + 's, transform .9s var(--ease) ' + (i * .1 + .2) + 's';
+      requestAnimationFrame(() => requestAnimationFrame(() => { node.style.opacity = 1; node.style.transform = 'translateY(-.06em)'; }));
+      i++;
+    }
+  });
+})();
+
+/* Elementos surgindo ao rolar */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('show'); io.unobserve(en.target); } });
+}, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* Vídeo: clicar no play troca a capa pelo vídeo */
+document.getElementById('playBtn').addEventListener('click', () => {
+  const box = document.getElementById('videoBox');
+  const v = document.getElementById('heroVideo');
+  v.controls = true; box.classList.add('playing');
+  v.play().catch(() => {});
+});
+
+/* Logos de clientes em looping infinito */
+(function(){
+  const track = document.getElementById('track');
+  const base = [...track.children];
+  for (let k = 0; k < 2; k++) base.forEach(it => track.appendChild(it.cloneNode(true)));
+})();
+
+/* Popup de contato */
+(function(){
+  const pop = document.getElementById('wppPop');
+  document.getElementById('wppBtn').addEventListener('click', () => pop.classList.toggle('open'));
+  document.getElementById('wppClose').addEventListener('click', () => pop.classList.remove('open'));
+})();
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
